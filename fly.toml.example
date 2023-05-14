@@ -1,0 +1,15 @@
+# fly.toml file generated for tenis on 2023-03-18T14:19:42+02:00
+
+app = "tenis"
+primary_region = "waw"
+
+[deploy]
+  release_command = "npm run migration:run"
+
+[env]
+  PORT = "8080"
+  POSTGRES_URL = "postgres://postgres@localhost:5432"
+  TOKEN = "bot_token"
+  USERS = "@user @user @user @user"
+  ADMIN_ID=adminId
+  TZ=0

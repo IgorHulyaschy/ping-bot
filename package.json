@@ -1,0 +1,30 @@
+{
+  "name": "ping-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config ./build/bot.js",
+    "start:dev": "node -r ts-node/register -r dotenv/config ./src/bot.ts",
+    "build": "tsc -b",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js -f ./ormconfig.ts",
+    "migration:generate": "npm run typeorm -- migration:generate -n user_table",
+    "postinstall": "npm run build",
+    "migration:run": "npm run typeorm -- migration:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node-telegram-bot-api": "^0.61.3",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "node-telegram-bot-api": "^0.61.0",
+    "pg": "^8.10.0",
+    "ts-node": "^10.9.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.31"
+  }
+}
